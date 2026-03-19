@@ -1,0 +1,178 @@
+import React, { useEffect, useRef, type ReactNode } from 'react';
+
+interface GlowCardProps {
+  children: ReactNode;
+  className?: string;
+  glowColor?: 'cyan' | 'electricBlue' | 'midnight' | 'steel' | 'ice';
+  size?: 'sm' | 'md' | 'lg';
+  width?: string | number;
+  height?: string | number;
+  customSize?: boolean; // When true, ignores size prop and uses width/height or className
+}
+
+const glowColorMap = {
+  cyan: { base: 190, spread: 220 },         // bright cyan accent
+  electricBlue: { base: 215, spread: 240 }, // main brand glow
+  midnight: { base: 220, spread: 120 },     // dark navy-blue glow
+  steel: { base: 210, spread: 60 },         // cooler subtle neutral glow
+  ice: { base: 200, spread: 140 },          // soft frosted highlight
+  magenta: { base: 320, spread: 20 }        // aggressive pink/magenta bloom
+};
+
+const sizeMap = {
+  sm: 'w-48 h-64',
+  md: 'w-64 h-80',
+  lg: 'w-80 h-96'
+};
+
+const GlowCard: React.FC<GlowCardProps> = ({ 
+  children, 
+  className = '', 
+  glowColor = 'electricBlue',
+  size = 'md',
+  width,
+  height,
+  customSize = false
+}) => {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const innerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const syncPointer = (e: PointerEvent) => {
+      if (cardRef.current) {
+        const rect = cardRef.current.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        cardRef.current.style.setProperty('--x', x.toFixed(2));
+        cardRef.current.style.setProperty('--xp', (e.clientX / window.innerWidth).toFixed(2));
+        cardRef.current.style.setProperty('--y', y.toFixed(2));
+        cardRef.current.style.setProperty('--yp', (e.clientY / window.innerHeight).toFixed(2));
+      }
+    };
+
+    document.addEventListener('pointermove', syncPointer);
+    return () => document.removeEventListener('pointermove', syncPointer);
+  }, []);
+
+  const { base, spread } = glowColorMap[glowColor];
+
+  // Determine sizing
+  const getSizeClasses = () => {
+    if (customSize) {
+      return ''; // Let className or inline styles handle sizing
+    }
+    return sizeMap[size];
+  };
+
+  const getInlineStyles = () => {
+    const baseStyles: React.CSSProperties = {
+      '--base': base,
+      '--spread': spread,
+      '--radius': '14',
+      '--border': '2',
+      '--backdrop': 'hsl(0 0% 60% / 0.12)',
+      '--backup-border': 'var(--backdrop)',
+      '--size': '200',
+      '--outer': '1',
+      '--border-size': 'calc(var(--border, 2) * 1px)',
+      '--spotlight-size': 'calc(var(--size, 150) * 1px)',
+      '--hue': 'calc(var(--base) + (var(--xp, 0) * var(--spread, 0)))',
+      backgroundImage: `radial-gradient(
+        var(--spotlight-size) var(--spotlight-size) at
+        calc(var(--x, 0) * 1px)
+        calc(var(--y, 0) * 1px),
+        hsl(var(--hue, 210) calc(var(--saturation, 100) * 1%) calc(var(--lightness, 70) * 1%) / var(--bg-spot-opacity, 0.1)), transparent
+      )`,
+      backgroundColor: 'var(--backdrop, transparent)',
+      backgroundSize: 'calc(100% + (2 * var(--border-size))) calc(100% + (2 * var(--border-size)))',
+      backgroundPosition: '50% 50%',
+      // Removed backgroundAttachment: 'fixed' to prevent transform breaking
+      border: 'var(--border-size) solid var(--backup-border)',
+      position: 'relative',
+      touchAction: 'none',
+    } as React.CSSProperties;
+
+    // Add width and height if provided
+    if (width !== undefined) {
+      baseStyles.width = typeof width === 'number' ? `${width}px` : width;
+    }
+    if (height !== undefined) {
+      baseStyles.height = typeof height === 'number' ? `${height}px` : height;
+    }
+
+    return baseStyles;
+  };
+
+  const beforeAfterStyles = `
+    [data-glow]::before,
+    [data-glow]::after {
+      pointer-events: none;
+      content: "";
+      position: absolute;
+      inset: calc(var(--border-size) * -1);
+      border: var(--border-size) solid transparent;
+      border-radius: calc(var(--radius) * 1px);
+      background-size: calc(100% + (2 * var(--border-size))) calc(100% + (2 * var(--border-size)));
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: destination-out;
+      mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+    }
+    
+    [data-glow]::before {
+      background-image: radial-gradient(
+        calc(var(--spotlight-size) * 2) calc(var(--spotlight-size) * 2) at
+        calc(var(--x, 0) * 1px)
+        calc(var(--y, 0) * 1px),
+        hsl(var(--hue, 210) 100% 70% / 1), transparent 100%
+      );
+      filter: brightness(3) drop-shadow(0 0 10px hsl(var(--hue, 210) 100% 65%));
+      z-index: 10;
+    }
+    
+    [data-glow]::after {
+      background-image: radial-gradient(
+        calc(var(--spotlight-size) * 0.8) calc(var(--spotlight-size) * 0.8) at
+        calc(var(--x, 0) * 1px)
+        calc(var(--y, 0) * 1px),
+        rgba(255, 255, 255, 0.9), transparent 100%
+      );
+      z-index: 10;
+    }
+    
+    [data-glow] [data-glow] {
+      display: none;
+    }
+  `;
+
+  return (
+    <>
+      <style dangerouslySetInnerHTML={{ __html: beforeAfterStyles }} />
+      <div
+        ref={cardRef}
+        data-glow
+        style={getInlineStyles()}
+        className={`
+          ${getSizeClasses()}
+          ${!customSize ? 'aspect-[3/4]' : ''}
+          rounded-2xl 
+          relative 
+          flex flex-col
+          shadow-[0_1rem_2rem_-1rem_black] 
+          p-8 
+          gap-4 
+          backdrop-blur-[10px]
+          ${className}
+        `}
+      >
+        <div ref={innerRef} data-glow></div>
+        {children}
+      </div>
+    </>
+  );
+};
+
+export { GlowCard }
