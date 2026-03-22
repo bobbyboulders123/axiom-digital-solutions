@@ -1,13 +1,13 @@
-# Axiom Digital Solutions — Source of Truth
+# Axiom Digital Studio — Source of Truth
 
 ## 1. Brand
 
-**Brand name:** Axiom Digital Solutions  
-**One-line purpose:** Axiom Digital Solutions builds premium websites and digital experiences for businesses that want to stand out with clarity, quality, and modern design.
+**Brand name:** Axiom Digital Studio  
+**One-line purpose:** Axiom Digital Studio builds premium websites and digital experiences for businesses that want to stand out with clarity, quality, and modern design.
 
 ## 2. Positioning
 
-Axiom Digital Solutions should present as a premium digital solutions company with a strong technology backbone.
+Axiom Digital Studio should present as a premium digital solutions company with a strong technology backbone.
 
 The brand should feel:
 - premium
@@ -120,7 +120,7 @@ Use the **bare Axiom symbol logo only** as the uploaded visual brand asset.
 
 Do not rely on a fixed uploaded wordmark lockup.
 
-The builder may typeset the brand name `Axiom Digital Solutions` in a way that best fits the design system.
+The builder may typeset the brand name `Axiom Digital Studio` in a way that best fits the design system.
 
 ### Logo placement
 Use the symbol logo for:
@@ -296,7 +296,7 @@ If used by a coding agent:
 
 ## 15. Final Creative Summary
 
-Axiom Digital Solutions should look like a premium digital brand built on precision, technical credibility, and strong visual execution.
+Axiom Digital Studio should look like a premium digital brand built on precision, technical credibility, and strong visual execution.
 
 The site should feel like it belongs in the world of advanced hardware, polished software systems, and modern digital infrastructure.
 

@@ -72,7 +72,7 @@ const Footer = () => {
                 className="h-7 w-auto mix-blend-screen transition-transform duration-200 group-hover:scale-[1.02]"
               />
               <span className="text-xl sm:text-2xl font-semibold tracking-tight text-white">
-                Axiom Digital Solutions
+                Axiom Digital Studio
               </span>
             </a>
 
@@ -82,7 +82,7 @@ const Footer = () => {
             </p>
 
             <p className="text-sm text-steel/80">
-              © {new Date().getFullYear()} Axiom Digital Solutions. All rights reserved.
+              © {new Date().getFullYear()} Axiom Digital Studio. All rights reserved.
             </p>
           </AnimatedContainer>
 

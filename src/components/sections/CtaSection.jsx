@@ -20,7 +20,7 @@ const CtaSection = () => {
         </h2>
 
         <p className="text-steel text-lg md:text-xl mb-12 max-w-2xl mx-auto">
-          Partner with Axiom Digital Solutions to replace your generic website with a
+          Partner with Axiom Digital Studio to replace your generic website with a
           high-performance, premium digital experience.
         </p>
 

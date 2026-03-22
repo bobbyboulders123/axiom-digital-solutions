@@ -120,7 +120,7 @@ const Navbar = () => {
               className="h-7 w-auto mix-blend-screen transition-transform duration-200 group-hover:scale-[1.02] shrink-0"
             />
             <span className="text-lg sm:text-xl font-semibold tracking-tight text-white transition-colors duration-200 group-hover:text-cyan truncate">
-              Axiom Digital Solutions
+              Axiom Digital Studio
             </span>
           </Link>
 

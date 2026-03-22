@@ -14,7 +14,7 @@ const legalContent = {
   privacy: {
     title: 'Privacy Policy',
     body: [
-      'This placeholder Privacy Policy explains how Axiom Digital Solutions may collect, use, and safeguard information submitted through this website.',
+      'This placeholder Privacy Policy explains how Axiom Digital Studio may collect, use, and safeguard information submitted through this website.',
       'When your final policy is ready, this section should cover what data is collected, how it is used, whether analytics or form submissions are stored, and how users can contact you regarding their information.',
       'This is a structural placeholder and should be replaced with your finalized legal copy before launch.',
     ],
@@ -22,7 +22,7 @@ const legalContent = {
   terms: {
     title: 'Terms of Service',
     body: [
-      'This placeholder Terms of Service section outlines the general structure for the terms governing use of this website and any related services offered by Axiom Digital Solutions.',
+      'This placeholder Terms of Service section outlines the general structure for the terms governing use of this website and any related services offered by Axiom Digital Studio.',
       'Your final terms should define acceptable use, service limitations, intellectual property language, disclaimers, and how disputes are handled.',
       'This content is a placeholder for layout and navigation purposes and should be replaced before launch.',
     ],
@@ -69,7 +69,7 @@ const LegalPage = () => {
               Legal Information
             </h1>
             <p className="text-steel text-lg md:text-xl leading-relaxed">
-              This page houses the legal foundation for the Axiom Digital Solutions website.
+              This page houses the legal foundation for the Axiom Digital Studio website.
               Replace this placeholder content with your finalized policies before launch.
             </p>
           </div>

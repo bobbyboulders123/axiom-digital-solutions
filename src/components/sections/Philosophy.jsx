@@ -93,7 +93,7 @@ const Philosophy = () => {
               </h3>
             </div>
             <p className="text-lg leading-8 text-white md:text-xl">
-              We don&apos;t do generic. Axiom Digital Solutions builds premium,
+              We don&apos;t do generic. Axiom Digital Studio builds premium,
               custom-coded environments inspired by enterprise architecture,
               precision hardware, and modern interface systems. The result is clean,
               fast, credible, and unmistakably high-end.

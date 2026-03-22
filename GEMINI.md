@@ -10,7 +10,7 @@ When the user asks to build a site (or this file is loaded into a fresh project)
 
 ### Questions (all in one AskUserQuestion call)
 
-1. **"What's the brand name and one-line purpose?"** — Free text. Example: "Axiom Digital Solutions — premium websites and digital experiences for businesses that want to stand out with clarity, quality, and modern design."
+1. **"What's the brand name and one-line purpose?"** — Free text. Example: "Axiom Digital Studio — premium websites and digital experiences for businesses that want to stand out with clarity, quality, and modern design."
 2. **"Pick an aesthetic direction"** — Single-select from the presets below. Each preset ships a full design system.
 3. **"What are your 3 key value propositions?"** — Free text. Brief phrases. These become the Features section cards.
 4. **"What should visitors do?"** — Free text. The primary CTA. Example: "Book a consultation", "Start your project", "Request a quote".
@@ -89,7 +89,7 @@ If the workspace contains `docs/website/axiom-design.md`, treat it as the **sour
 - Prioritize **Preset E — Precision Circuit** unless the user explicitly chooses another preset.
 - Use the **bare symbol logo only** as the uploaded brand asset.
 - Do **not** assume a fixed wordmark lockup from the uploaded asset.
-- You may typeset `Axiom Digital Solutions` yourself in a premium way that fits the design system.
+- You may typeset `Axiom Digital Studio` yourself in a premium way that fits the design system.
 - Use the symbol logo in the navbar, footer, favicon, and subtle decorative placements.
 - The site must feel premium, technical, credible, and polished — not cyberpunk, not cosmic, not gamer-themed.
 - Prefer motherboard, circuit, processor, server, and digital-systems imagery over abstract sci-fi imagery.
