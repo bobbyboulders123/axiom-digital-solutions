@@ -27,12 +27,13 @@ export const labDemos = [
     note: "Explores how restrained visual effects can support brand perception without becoming a performance liability.",
   },
   {
-    title: "Conversion Systems",
+    title: "Conversion CTA System",
     category: "Growth Interfaces",
     summary:
-      "Concepts for stronger calls to action, guided lead capture, trust signals, and service pathways that make next steps easier to understand.",
+      "A concept capability demo for stronger calls to action, guided lead capture, trust signals, and service pathways that make next steps easier to understand.",
     tags: ["Lead Capture", "CTA Strategy", "User Paths"],
-    status: "Coming Soon",
-    note: "Demonstrates how page structure and interaction design can support clearer conversion intent.",
+    status: "Live Demo",
+    route: "/lab/conversion-cta-system",
+    note: "This is an internal concept demo showing how page structure and interaction design can support clearer conversion intent, not a client project.",
   },
 ];

@@ -1,7 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const statusClasses = {
   "Concept Demo": "border-cyan/25 bg-cyan/10 text-cyan",
+  "Live Demo": "border-cyan/30 bg-cyan/15 text-cyan",
   "Coming Soon": "border-steel/20 bg-white/[0.035] text-steel",
 };
 
@@ -49,6 +51,18 @@ const LabCard = ({ demo }) => {
             </span>
           ))}
         </div>
+
+        {demo.route && (
+          <div className="mt-auto pt-7">
+            <Link
+              to={demo.route}
+              aria-label={`Open ${demo.title} demo`}
+              className="inline-flex rounded-full border border-cyan/35 bg-cyan/10 px-4 py-2 font-mono text-[11px] uppercase tracking-[0.18em] text-cyan transition-colors duration-200 hover:border-cyan hover:bg-cyan/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B0F14]"
+            >
+              Open {demo.title} Demo
+            </Link>
+          </div>
+        )}
       </div>
     </article>
   );
