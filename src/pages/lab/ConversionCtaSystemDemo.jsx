@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import GlobalNoise from "../../components/ui/GlobalNoise";
 import Navbar from "../../components/layout/Navbar";
 import Footer from "../../components/layout/Footer";
-import ConversionCtaSystem from "../../components/lab/demos/ConversionCtaSystem.jsx";
+import ConversionCtaSystem from "../../components/lab/demos/conversion-cta/ConversionCtaSystem.jsx";
 
 const ConversionCtaSystemDemo = () => {
   return (
